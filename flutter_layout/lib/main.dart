@@ -9,14 +9,16 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'flutter Material Design',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Material Deisgn Layout'),
-        ),
-        body: Center(
-          child: Text('Hello World'),
+    return Container(
+      decoration: BoxDecoration(color: Colors.white),
+      child: Center(
+        child: Text(
+          'Hello World',
+          textDirection: TextDirection.ltr,
+          style: TextStyle(
+            fontSize: 32,
+            color: Colors.black,
+          ),
         ),
       ),
     );
