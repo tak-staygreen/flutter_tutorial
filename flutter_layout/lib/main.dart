@@ -9,15 +9,14 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: Colors.white),
-      child: Center(
-        child: Text(
-          'Hello World',
-          textDirection: TextDirection.ltr,
-          style: TextStyle(
-            fontSize: 32,
-            color: Colors.black,
+    return MaterialApp(
+      title: 'Flutter Material Design',
+      home: Scaffold(
+        body: Center(
+          child: Container(
+            color: Colors.blue,
+            width: 300.0,
+            height: 300.0,
           ),
         ),
       ),
