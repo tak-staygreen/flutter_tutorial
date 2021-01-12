@@ -9,52 +9,38 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var grid = [
-      "sample1",
-      "sample2",
-      "sample3",
-      "sample4",
-      "sample5",
-      "sample6",
-      "sample7",
-      "sample8",
-      "sample9",
-      "sample10"
-    ];
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
-              title: Text('GridView'),
+              title: Text('Stack'),
             ),
-            body: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 1,
-                  mainAxisSpacing: 1,
-                ),
-                itemBuilder: (BuildContext context, int index) {
-                  if (index >= grid.length) {
-                    grid.addAll([
-                      "sample1",
-                      "sample2",
-                      "sample3",
-                      "sample4",
-                      "sample5",
-                      "sample6",
-                      "sample7",
-                      "sample8",
-                      "sample9",
-                      "sample10"
-                    ]);
-                  }
-                  return _photoItem(grid[index]);
-                })));
-  }
-
-  Widget _photoItem(String image) {
-    var assetsImage = "images/" + image + ".jpg";
-    return Container(
-      child: Image.asset(assetsImage, fit: BoxFit.cover),
-    );
+            body: Stack(
+              alignment: Alignment.bottomRight,
+              children: <Widget>[
+                SizedBox(
+                    width: 350.0,
+                    height: 350.0,
+                    child: Container(color: Colors.orange)),
+                Positioned(
+                    left: 20.0,
+                    top: 20.0,
+                    width: 300.0,
+                    height: 300.0,
+                    child: Container(color: Colors.blue)),
+                Positioned(
+                    left: 10.0,
+                    top: 10.0,
+                    width: 100.0,
+                    height: 100.0,
+                    child: Container(color: Colors.green)),
+                Positioned(
+                    left: 120.0,
+                    top: 120.0,
+                    width: 100.0,
+                    height: 100.0,
+                    child: Container(color: Colors.orange)),
+                Text('Test')
+              ],
+            )));
   }
 }
