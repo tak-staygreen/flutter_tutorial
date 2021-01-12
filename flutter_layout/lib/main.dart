@@ -12,35 +12,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
-              title: Text('Stack'),
+              title: Text('Card'),
             ),
-            body: Stack(
-              alignment: Alignment.bottomRight,
-              children: <Widget>[
-                SizedBox(
-                    width: 350.0,
-                    height: 350.0,
-                    child: Container(color: Colors.orange)),
-                Positioned(
-                    left: 20.0,
-                    top: 20.0,
-                    width: 300.0,
-                    height: 300.0,
-                    child: Container(color: Colors.blue)),
-                Positioned(
-                    left: 10.0,
-                    top: 10.0,
-                    width: 100.0,
-                    height: 100.0,
-                    child: Container(color: Colors.green)),
-                Positioned(
-                    left: 120.0,
-                    top: 120.0,
-                    width: 100.0,
-                    height: 100.0,
-                    child: Container(color: Colors.orange)),
-                Text('Test')
-              ],
+            body: Card(
+              margin: const EdgeInsets.all(50.0),
+              child: Container(
+                  margin: const EdgeInsets.all(10.0),
+                  width: 300.0,
+                  height: 100.0,
+                  child: Text(
+                    'Card',
+                    style: TextStyle(fontSize: 30),
+                  )),
             )));
   }
 }
