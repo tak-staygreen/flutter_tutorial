@@ -9,38 +9,50 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var list = [
-      _photoItem("sample1"),
-      _photoItem("sample2"),
-      _photoItem("sample3"),
-      _photoItem("sample4"),
-      _photoItem("sample5"),
-      _photoItem("sample6"),
-      _photoItem("sample7"),
-      _photoItem("sample8"),
-      _photoItem("sample9"),
-      _photoItem("sample10"),
+    var grid = [
+      "sample1",
+      "sample2",
+      "sample3",
+      "sample4",
+      "sample5",
+      "sample6",
+      "sample7",
+      "sample8",
+      "sample9",
+      "sample10"
     ];
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
               title: Text('GridView'),
             ),
-            body: GridView.extent(
-                maxCrossAxisExtent: 150,
-                padding: const EdgeInsets.all(4),
-                mainAxisSpacing: 4,
-                crossAxisSpacing: 4,
-                children: list)));
+            body: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                ),
+                itemBuilder: (BuildContext context, int index) {
+                  if (index >= grid.length) {
+                    grid.addAll([
+                      "sample1",
+                      "sample2",
+                      "sample3",
+                      "sample4",
+                      "sample5",
+                      "sample6",
+                      "sample7",
+                      "sample8",
+                      "sample9",
+                      "sample10"
+                    ]);
+                  }
+                  return _photoItem(grid[index]);
+                })));
   }
 
   Widget _photoItem(String image) {
     var assetsImage = "images/" + image + ".jpg";
     return Container(
-      child: Image.asset(
-        assetsImage,
-        fit: BoxFit.cover,
-      ),
+      child: Image.asset(assetsImage, fit: BoxFit.cover),
     );
   }
 }
