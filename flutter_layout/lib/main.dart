@@ -22,7 +22,12 @@ class MyApp extends StatelessWidget {
             appBar: AppBar(
               title: Text('GridView'),
             ),
-            body: GridView.count(crossAxisCount: 2, children: list)));
+            body: GridView.extent(
+                maxCrossAxisExtent: 150,
+                padding: const EdgeInsets.all(4),
+                mainAxisSpacing: 4,
+                crossAxisSpacing: 4,
+                children: list)));
   }
 
   Widget _photoItem(String image) {
