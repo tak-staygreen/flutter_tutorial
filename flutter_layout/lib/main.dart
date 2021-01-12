@@ -9,45 +9,29 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    var list = [
+      _photoItem("pic0"),
+      _photoItem("pic1"),
+      _photoItem("pic2"),
+      _photoItem("pic3"),
+      _photoItem("pic4"),
+      _photoItem("pic5"),
+    ];
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
-              title: Text('ListView'),
+              title: Text('GridView'),
             ),
-            body: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (BuildContext context, int index) {
-                if (index >= list.length) {
-                  list.addAll([
-                    "0",
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                    "7",
-                    "8",
-                    "9",
-                  ]);
-                }
-                return _messageItem(list[index]);
-              },
-            )));
+            body: GridView.count(crossAxisCount: 2, children: list)));
   }
 
-  Widget _messageItem(String title) {
+  Widget _photoItem(String image) {
+    var assetsImage = "assets/img/" + image + ".png";
     return Container(
-        width: 100,
-        decoration: new BoxDecoration(
-            border:
-                new Border(right: BorderSide(width: 1.0, color: Colors.grey))),
-        child: Center(
-          child: Text(
-            title,
-            style: TextStyle(color: Colors.black, fontSize: 20.0),
-          ),
-        ));
+      child: Image.asset(
+        assetsImage,
+        fit: BoxFit.cover,
+      ),
+    );
   }
 }
