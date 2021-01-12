@@ -10,12 +10,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var list = [
-      _photoItem("pic0"),
-      _photoItem("pic1"),
-      _photoItem("pic2"),
-      _photoItem("pic3"),
-      _photoItem("pic4"),
-      _photoItem("pic5"),
+      _photoItem("sample1"),
+      _photoItem("sample2"),
+      _photoItem("sample3"),
+      _photoItem("sample4"),
+      _photoItem("sample5"),
+      _photoItem("sample6"),
+      _photoItem("sample7"),
+      _photoItem("sample8"),
+      _photoItem("sample9"),
+      _photoItem("sample10"),
     ];
     return MaterialApp(
         home: Scaffold(
@@ -31,7 +35,7 @@ class MyApp extends StatelessWidget {
   }
 
   Widget _photoItem(String image) {
-    var assetsImage = "assets/img/" + image + ".png";
+    var assetsImage = "images/" + image + ".jpg";
     return Container(
       child: Image.asset(
         assetsImage,
